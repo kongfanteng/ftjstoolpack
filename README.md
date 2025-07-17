@@ -1,14 +1,67 @@
-truncate('123453232323232') ---> 12...
-truncate('12345', 5) ---> 12345
-truncate('12345', 3) ---> 123...
+# ftjstoolpack
 
-function.ts
-debounce.test.ts
-jest.useFakeTimers();
-应该在等待时间之后调用函数
-当防抖函数执行时候，始终只执行最后一次调用
-在等待时间内又调用了函数，重置计时器
-执行一次，500ms 执行一次
-执行三次
-500ms 重复调用三次
-扩展类型 FuncType，泛型调用
+ftjstoolpack 是一个 javascript 工具库，提供了一些常用的函数和方法，可以方便的用于开发 js 应用。目前处于学习交流阶段。
+
+当前版本提供了如下的功能：
+
+- 数组方法：range
+- 字符串方法：truncate
+- 函数方法：debounce
+
+## 安装
+
+可以使用 npm 或者 yarn 安装 ftjstoolpack
+
+```bash
+npm install ftjstoolpack
+```
+
+或者
+
+```bash
+yarn add ftjstoolpack
+```
+
+## 使用
+
+在使用之前，需要先导入 ftjstoolpack
+
+```js
+import { range, truncate, debounce } from "ftjstoolpack";
+```
+
+然后就可以使用这些方法了。下面是一些使用示例：
+
+**range**
+
+```js
+range(0, 5); // [0, 1, 2, 3, 4]
+range(1, 5); // [1, 2, 3, 4]
+range(0, 5, 2); // [0, 2, 4]
+```
+
+**truncate**
+
+```js
+truncate("Hello, world!", 5); // 'He...'
+truncate("Hello, world!", 8); // 'Hello...'
+truncate("Hello, world!", 20); // 'Hello, world!'
+```
+
+**debounce**
+
+```js
+const fn = debounce(() => console.log("Hello, world!"), 1000);
+fn(); // 不会立即执行
+fn(); // 不会立即执行
+fn(); // 不会立即执行
+// 1000 毫秒后，'Hello, world!' 只会被输出一次
+```
+
+## 贡献
+
+如果您在使用 ftjstoolpack 时遇到了问题，或者有任何建议和想法，请随时在 GitHub 上提出问题或者发起 PR。
+
+## 许可证
+
+ftjstoolpack 遵循 MIT 许可证。详情请参阅 LICENSE 文件。
